@@ -1,0 +1,62 @@
+# Comparison
+
+## Time Cost, Training Size, Accuracy, Loss Function
+
+### MLP Model
+```
+MLP(
+  (layers): Sequential(
+    (0): Linear(in_features=784, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=512, out_features=256, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=256, out_features=10, bias=True)
+  )
+)
+```
+
+### CNN
+```
+CNN(
+  (conv1): Conv2d(1, 6, kernel_size=(5, 5), stride=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=256, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=84, bias=True)
+  (fc3): Linear(in_features=84, out_features=10, bias=True)
+  (relu): ReLU()
+)
+```
+
+## 训练性能对比
+
+### MLP模型
+- 训练时间：35.37秒
+- 最终训练损失：0.0029
+- 最终验证准确率：97.98%
+- 测试准确率：98.10%
+- 模型大小：2.0MB
+
+### CNN模型
+- 训练时间：83.70秒
+- 最终训练损失：0.0141
+- 最终验证准确率：98.68%
+- 测试准确率：98.83%
+- 模型大小：177KB
+
+## 结论
+
+1. **准确率**：CNN模型的测试准确率(98.83%)略高于MLP模型(98.10%)，表明CNN在图像分类任务上有轻微优势。
+
+2. **训练时间**：MLP模型训练速度(35.37秒)明显快于CNN模型(83.70秒)，这是因为CNN模型有更复杂的计算。
+
+3. **训练损失**：MLP模型的最终训练损失(0.0029)低于CNN模型(0.0141)，但这可能表明MLP模型对训练数据过拟合。
+
+4. **模型大小**：尽管MLP模型结构更简单，但其文件大小(2.0MB)比CNN模型文件(177KB)大得多，这表明MLP模型有更多的参数。
+
+5. **总结**：
+   - CNN模型在MNIST数据集上表现略好，这符合预期，因为CNN能够捕捉图像的空间特征。
+   - MLP模型训练速度更快，但可能存在过拟合风险。
+   - 对于MNIST这样的简单数据集，两种模型都能达到很高的准确率，差异不大。
+   - 在更复杂的图像分类任务中，CNN的优势会更加明显。

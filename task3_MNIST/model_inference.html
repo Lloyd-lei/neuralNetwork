@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST模型推理可视化</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        .model-comparison {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .model-card {
+            flex: 1;
+            margin: 0 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .mlp {
+            border-left: 4px solid #FF9671;
+        }
+        .cnn {
+            border-left: 4px solid #00D2FC;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>MNIST数据集上的模型推理可视化</h1>
+    
+    <div class="container">
+        <h2>MLP与CNN模型推理结果比较</h2>
+        
+        <div class="explanation">
+            <p>下面的可视化展示了多层感知机(MLP)和卷积神经网络(CNN)在MNIST手写数字数据集上的推理结果。图像包括来自训练集和测试集的随机样本。</p>
+            <p>每个图像上方显示了图像的真实标签，下方显示了模型的预测结果。预测正确的标签以绿色显示，预测错误的标签以红色显示。</p>
+        </div>
+        
+        <div class="image-container">
+            <img src="inference_images/combined_predictions.png" alt="MLP和CNN模型推理结果比较">
+        </div>
+        
+        <div class="model-comparison">
+            <div class="model-card mlp">
+                <h3>MLP模型特点</h3>
+                <ul>
+                    <li>全连接神经网络结构</li>
+                    <li>输入层: 784个神经元 (28x28像素展平)</li>
+                    <li>隐藏层: 512和256个神经元</li>
+                    <li>输出层: 10个神经元 (对应0-9数字)</li>
+                    <li>优点: 训练速度快，结构简单</li>
+                    <li>缺点: 不保留空间信息，参数量大</li>
+                </ul>
+            </div>
+            
+            <div class="model-card cnn">
+                <h3>CNN模型特点</h3>
+                <ul>
+                    <li>卷积神经网络结构</li>
+                    <li>卷积层: 提取空间特征</li>
+                    <li>池化层: 降维并保留重要特征</li>
+                    <li>全连接层: 最终分类</li>
+                    <li>优点: 保留空间信息，参数量小，精度高</li>
+                    <li>缺点: 训练时间较长，结构复杂</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>推理结果分析</h2>
+        
+        <p>从上面的可视化结果可以观察到：</p>
+        <ul>
+            <li>两种模型在大多数情况下都能正确识别手写数字</li>
+            <li>CNN模型在某些复杂或模糊的数字上表现更好</li>
+            <li>MLP模型虽然结构简单，但在大多数清晰的数字上也能达到很好的识别效果</li>
+            <li>两种模型在相同的困难样本上可能都会出错</li>
+        </ul>
+        
+        <div class="explanation">
+            <p>这些结果与我们之前的性能比较一致：CNN模型在测试集上达到了98.83%的准确率，而MLP模型达到了98.10%的准确率。虽然CNN的准确率略高，但MLP的训练速度更快，在资源有限的情况下可能是更好的选择。</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>结论</h2>
+        
+        <p>通过对MLP和CNN模型在MNIST数据集上的推理结果可视化，我们可以得出以下结论：</p>
+        
+        <ol>
+            <li>两种模型都能有效地识别手写数字，准确率都超过98%</li>
+            <li>CNN模型由于能够捕捉图像的空间特征，在某些复杂样本上表现更好</li>
+            <li>MLP模型虽然结构简单，但在大多数情况下也能达到令人满意的识别效果</li>
+            <li>模型的选择应该根据具体应用场景、可用计算资源和对准确率的要求来决定</li>
+        </ol>
+        
+        <p>这个推理可视化展示了机器学习模型如何"看待"和"理解"手写数字，为我们提供了模型决策过程的直观理解。</p>
+    </div>
+    
+    <footer>
+        <p>MNIST模型推理可视化 | 物理129课程项目</p>
+    </footer>
+</body>
+</html> 

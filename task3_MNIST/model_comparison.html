@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLP vs CNN Model Comparison</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2 {
+            color: #00D2FC;
+            text-align: center;
+            margin-top: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0, 210, 252, 0.5);
+        }
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+        .conclusion {
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #FF9671;
+        }
+        .conclusion h3 {
+            color: #FF9671;
+            margin-top: 0;
+        }
+        .highlight-mlp {
+            color: #FF9671;
+            font-weight: bold;
+        }
+        .highlight-cnn {
+            color: #00D2FC;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #252525;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        tr:hover {
+            background-color: #2a2a2a;
+        }
+        .mlp-value {
+            color: #FF9671;
+        }
+        .cnn-value {
+            color: #00D2FC;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MLP vs CNN Model Comparison on MNIST Dataset</h1>
+        
+        <h2>Performance Metrics</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>MLP</th>
+                <th>CNN</th>
+                <th>Better Model</th>
+            </tr>
+            <tr>
+                <td>Training Time</td>
+                <td class="mlp-value">35.37 seconds</td>
+                <td class="cnn-value">83.70 seconds</td>
+                <td class="mlp-value">MLP (faster)</td>
+            </tr>
+            <tr>
+                <td>Training Loss</td>
+                <td class="mlp-value">0.0029</td>
+                <td class="cnn-value">0.0141</td>
+                <td class="mlp-value">MLP (lower)</td>
+            </tr>
+            <tr>
+                <td>Validation Accuracy</td>
+                <td class="mlp-value">97.98%</td>
+                <td class="cnn-value">98.68%</td>
+                <td class="cnn-value">CNN (higher)</td>
+            </tr>
+            <tr>
+                <td>Test Accuracy</td>
+                <td class="mlp-value">98.10%</td>
+                <td class="cnn-value">98.83%</td>
+                <td class="cnn-value">CNN (higher)</td>
+            </tr>
+            <tr>
+                <td>Model Size</td>
+                <td class="mlp-value">2.0 MB</td>
+                <td class="cnn-value">177 KB</td>
+                <td class="cnn-value">CNN (smaller)</td>
+            </tr>
+        </table>
+
+        <h2>Performance Radar Chart</h2>
+        <div class="image-container">
+            <img src="comparison_images/radar_chart.png" alt="Performance Radar Chart">
+        </div>
+
+        <h2>Performance Metrics Comparison</h2>
+        <div class="image-container">
+            <img src="comparison_images/bar_comparison.png" alt="Performance Bar Chart">
+        </div>
+
+        <h2>Training Process Comparison</h2>
+        <div class="image-container">
+            <img src="comparison_images/training_curves.png" alt="Training Curves">
+        </div>
+
+        <h2>Model Architecture Comparison</h2>
+        <div class="image-container">
+            <img src="comparison_images/architecture_comparison.png" alt="Model Architecture">
+        </div>
+
+        <div class="conclusion">
+            <h3>Conclusion</h3>
+            <p>
+                This experiment successfully demonstrates the performance comparison between MLP and CNN models on the MNIST dataset. Here are the key findings:
+            </p>
+            <ol>
+                <li><strong>Accuracy:</strong> The <span class="highlight-cnn">CNN model</span> achieves slightly higher test accuracy (98.83%) compared to the <span class="highlight-mlp">MLP model</span> (98.10%), confirming CNN's advantage in image classification tasks.</li>
+                <li><strong>Training Time:</strong> The <span class="highlight-mlp">MLP model</span> trains significantly faster (35.37 seconds) than the <span class="highlight-cnn">CNN model</span> (83.70 seconds), making it more efficient for rapid prototyping.</li>
+                <li><strong>Training Loss:</strong> The <span class="highlight-mlp">MLP model</span> achieves a lower final training loss (0.0029) compared to the <span class="highlight-cnn">CNN model</span> (0.0141), which might indicate potential overfitting to the training data.</li>
+                <li><strong>Model Size:</strong> Despite having a simpler structure, the <span class="highlight-mlp">MLP model</span> has a larger file size (2.0MB) than the <span class="highlight-cnn">CNN model</span> (177KB), indicating that MLPs require more parameters to achieve comparable performance.</li>
+                <li><strong>Overall Assessment:</strong> For the MNIST dataset, both models achieve high accuracy (>98%), with the CNN showing a slight edge. However, the MLP's faster training time makes it a viable option for this relatively simple image classification task.</li>
+            </ol>
+            <p>
+                This experiment validates CNN's advantages in image processing tasks while also demonstrating that for simpler datasets like MNIST, a well-designed MLP can achieve competitive results with faster training times.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>Created for MNIST Classification Task Comparison | 2023</p>
+        </div>
+    </div>
+</body>
+</html> 
