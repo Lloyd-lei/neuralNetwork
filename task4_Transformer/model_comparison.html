@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MNIST模型比较：MLP、CNN和Transformer</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #2c3e50;
+      }
+      h1 {
+        text-align: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+      .container {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+      .image-container {
+        text-align: center;
+        margin: 20px 0;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .explanation {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-left: 4px solid #3498db;
+        margin: 20px 0;
+      }
+      .model-comparison {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .model-card {
+        flex: 1;
+        margin: 10px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        min-width: 250px;
+      }
+      .mlp {
+        border-left: 4px solid #ff9671;
+      }
+      .cnn {
+        border-left: 4px solid #00d2fc;
+      }
+      .transformer {
+        border-left: 4px solid #9b59b6;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      footer {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        color: #7f8c8d;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MNIST数据集上的模型比较：MLP、CNN和Transformer</h1>
+
+    <div class="container">
+      <h2>模型架构比较</h2>
+
+      <div class="explanation">
+        <p>
+          本项目比较了三种不同的神经网络架构在MNIST手写数字识别任务上的性能：多层感知机(MLP)、卷积神经网络(CNN)和Transformer。下面展示了三种模型的架构差异。
+        </p>
+      </div>
+
+      <div class="image-container">
+        <img
+          src="comparison_images/architecture_comparison_all.png"
+          alt="模型架构比较"
+        />
+      </div>
+
+      <div class="model-comparison">
+        <div class="model-card mlp">
+          <h3>MLP模型特点</h3>
+          <ul>
+            <li>全连接神经网络结构</li>
+            <li>输入层: 784个神经元 (28x28像素展平)</li>
+            <li>隐藏层: 512和256个神经元</li>
+            <li>输出层: 10个神经元 (对应0-9数字)</li>
+            <li>优点: 训练速度快，结构简单</li>
+            <li>缺点: 不保留空间信息，参数量大</li>
+          </ul>
+        </div>
+
+        <div class="model-card cnn">
+          <h3>CNN模型特点</h3>
+          <ul>
+            <li>卷积神经网络结构</li>
+            <li>卷积层: 提取空间特征</li>
+            <li>池化层: 降维并保留重要特征</li>
+            <li>全连接层: 最终分类</li>
+            <li>优点: 保留空间信息，参数量小，精度高</li>
+            <li>缺点: 训练时间较长，结构复杂</li>
+          </ul>
+        </div>
+
+        <div class="model-card transformer">
+          <h3>Transformer模型特点</h3>
+          <ul>
+            <li>基于注意力机制的结构</li>
+            <li>输入嵌入: 将输入转换为向量表示</li>
+            <li>位置编码: 添加位置信息</li>
+            <li>多头注意力: 捕捉不同特征之间的关系</li>
+            <li>优点: 并行计算能力强，可捕捉长距离依赖</li>
+            <li>缺点: 参数量大，训练时间长</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>性能比较</h2>
+
+      <div class="explanation">
+        <p>
+          以下是三种模型在MNIST数据集上的性能比较，包括测试准确率、训练时间和模型大小等指标。
+        </p>
+      </div>
+
+      <div class="image-container">
+        <img src="comparison_images/radar_chart_all.png" alt="性能雷达图" />
+      </div>
+
+      <div class="image-container">
+        <img
+          src="comparison_images/bar_comparison_all.png"
+          alt="性能条形图比较"
+        />
+      </div>
+
+      <h3>性能指标对比表</h3>
+      <table>
+        <tr>
+          <th>指标</th>
+          <th>MLP</th>
+          <th>CNN</th>
+          <th>Transformer</th>
+        </tr>
+        <tr>
+          <td>测试准确率 (%)</td>
+          <td>98.10</td>
+          <td>98.83</td>
+          <td>98.90</td>
+        </tr>
+        <tr>
+          <td>训练时间 (秒)</td>
+          <td>35.37</td>
+          <td>83.70</td>
+          <td>120.45</td>
+        </tr>
+        <tr>
+          <td>模型大小 (MB)</td>
+          <td>2.00</td>
+          <td>0.18</td>
+          <td>0.50</td>
+        </tr>
+      </table>
+
+      <div class="explanation">
+        <p>从性能比较可以看出：</p>
+        <ul>
+          <li>Transformer模型在准确率上略优于CNN和MLP</li>
+          <li>MLP模型训练速度最快，Transformer训练时间最长</li>
+          <li>CNN模型大小最小，MLP模型大小最大</li>
+          <li>三种模型在MNIST数据集上都能达到很高的准确率（>98%）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>训练过程比较</h2>
+
+      <div class="image-container">
+        <img
+          src="comparison_images/training_curves_all.png"
+          alt="训练曲线比较"
+        />
+      </div>
+
+      <div class="explanation">
+        <p>训练曲线显示：</p>
+        <ul>
+          <li>MLP模型收敛速度最快，但最终验证准确率略低</li>
+          <li>CNN模型在中期收敛较快，最终验证准确率高</li>
+          <li>Transformer模型收敛速度较慢，但最终验证准确率最高</li>
+          <li>所有模型在训练后期都趋于稳定</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>推理结果比较</h2>
+
+      <div class="image-container">
+        <img
+          src="inference_images/combined_predictions_all.png"
+          alt="模型推理结果比较"
+        />
+      </div>
+
+      <div class="explanation">
+        <p>推理结果显示：</p>
+        <ul>
+          <li>三种模型在大多数情况下都能正确识别手写数字</li>
+          <li>CNN和Transformer在某些复杂或模糊的数字上表现更好</li>
+          <li>三种模型在相同的困难样本上可能都会出错</li>
+          <li>Transformer模型在某些边缘情况下表现最好</li>
+        </ul>
+      </div>
+
+      <h3>Transformer注意力可视化</h3>
+      <div class="image-container">
+        <img
+          src="inference_images/transformer_attention.png"
+          alt="Transformer注意力可视化"
+        />
+      </div>
+
+      <div class="explanation">
+        <p>
+          Transformer模型的注意力机制可视化展示了模型如何关注输入图像的不同部分。热图显示了模型在做出决策时关注的区域，帮助我们理解模型的工作原理。
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>结论</h2>
+
+      <p>
+        通过对MLP、CNN和Transformer三种模型在MNIST数据集上的比较，我们可以得出以下结论：
+      </p>
+
+      <ol>
+        <li>三种模型都能有效地识别手写数字，准确率都超过98%</li>
+        <li>Transformer模型在准确率上略优于其他两种模型，但训练时间最长</li>
+        <li>CNN模型在准确率和模型大小之间取得了很好的平衡</li>
+        <li>
+          MLP模型虽然结构简单，但在大多数情况下也能达到令人满意的识别效果，且训练速度最快
+        </li>
+        <li>
+          模型的选择应该根据具体应用场景、可用计算资源和对准确率的要求来决定
+        </li>
+      </ol>
+
+      <p>
+        这个比较展示了深度学习模型架构的演进，从简单的全连接网络(MLP)，到专为图像设计的卷积网络(CNN)，再到近年来广泛应用的注意力机制模型(Transformer)。每种架构都有其优缺点，适用于不同的应用场景。
+      </p>
+    </div>
+
+    <footer>
+      <p>MNIST模型比较：MLP、CNN和Transformer | 物理129课程项目</p>
+    </footer>
+  </body>
+</html>

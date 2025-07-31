@@ -1,0 +1,4 @@
+Metric,MLP,CNN,Transformer
+Test Accuracy (%),98.1,98.83,96.8
+Training Time (s),35.37,83.7,164.68
+Model Size (MB),2.0,0.177,4.352852821350098
