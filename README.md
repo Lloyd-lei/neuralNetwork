@@ -1,6 +1,6 @@
 # MNIST Classification with MLP, CNN and Transformer Models
 
-This repository contains the implementation and comparison of Multi-Layer Perceptron (MLP), Convolutional Neural Network (CNN), and Transformer models for MNIST handwritten digit classification.
+Visit the web page to see more result: https://lloyd-lei.github.io/neuralNetwork/task4_Transformer/model_comparison.html
 
 ## Project Structure
 
