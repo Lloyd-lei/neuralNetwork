@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -148,20 +148,21 @@
   </head>
   <body>
     <div class="container">
-      <h1>🧠 Neural Network Models Comparison</h1>
+      <h1>Neural Network Models Comparison</h1>
       <p class="subtitle">
-        MNIST手写数字识别：MLP、CNN与Transformer模型的全面比较
+        MNIST Handwritten Digit Recognition: Comprehensive Comparison of MLP,
+        CNN, and Transformer Models
       </p>
 
       <div class="performance-summary">
-        <h2>📊 性能对比总览</h2>
+        <h2>Performance Overview</h2>
         <table class="performance-table">
           <thead>
             <tr>
-              <th>模型</th>
-              <th>测试准确率</th>
-              <th>训练时间</th>
-              <th>模型大小</th>
+              <th>Model</th>
+              <th>Test Accuracy</th>
+              <th>Training Time</th>
+              <th>Model Size</th>
             </tr>
           </thead>
           <tbody>
@@ -193,72 +194,93 @@
 
       <div class="project-grid">
         <div class="project-card mlp">
-          <div class="project-title">🔷 Multi-Layer Perceptron (MLP)</div>
+          <div class="project-title">Multi-Layer Perceptron (MLP)</div>
           <div class="project-description">
-            全连接神经网络实现，从NumPy基础版到PyTorch优化版。
-            展示了最基础的神经网络架构，训练速度快，结构简单。
+            Fully connected neural network implementation from NumPy basics to
+            PyTorch optimization. Demonstrates the most fundamental neural
+            network architecture with fast training and simple structure.
           </div>
-          <a href="task1_MLP/" class="btn">查看MLP实现</a>
+          <a
+            href="https://github.com/Lloyd-lei/neuralNetwork/tree/main/task1_MLP"
+            class="btn"
+            >View MLP Implementation</a
+          >
         </div>
 
         <div class="project-card cnn">
-          <div class="project-title">🔹 Convolutional Neural Network (CNN)</div>
+          <div class="project-title">Convolutional Neural Network (CNN)</div>
           <div class="project-description">
-            卷积神经网络实现，专为图像分类设计。
-            在MNIST数据集上达到最佳性能平衡，模型小且准确率高。
+            Convolutional neural network implementation designed specifically
+            for image classification. Achieves the best performance balance on
+            MNIST dataset with small model size and high accuracy.
           </div>
-          <a href="task2_CNN/" class="btn">查看CNN实现</a>
+          <a
+            href="https://github.com/Lloyd-lei/neuralNetwork/tree/main/task2_CNN"
+            class="btn"
+            >View CNN Implementation</a
+          >
         </div>
 
         <div class="project-card transformer">
-          <div class="project-title">🔮 Transformer Model</div>
+          <div class="project-title">Transformer Model</div>
           <div class="project-description">
-            基于注意力机制的Transformer模型，展示现代深度学习架构。
-            包含位置编码、多头注意力等先进特性。
+            Attention-based Transformer model showcasing modern deep learning
+            architecture. Includes positional encoding, multi-head attention,
+            and other advanced features.
           </div>
-          <a href="task4_Transformer/" class="btn">查看Transformer实现</a>
+          <a
+            href="https://github.com/Lloyd-lei/neuralNetwork/tree/main/task4_Transformer"
+            class="btn"
+            >View Transformer Implementation</a
+          >
         </div>
 
         <div class="project-card comparison">
-          <div class="project-title">📈 全面模型比较</div>
+          <div class="project-title">Comprehensive Model Comparison</div>
           <div class="project-description">
-            三种模型的详细性能比较，包括架构分析、训练曲线、
-            推理结果和注意力可视化等全方位对比。
+            Detailed performance comparison of all three models, including
+            architecture analysis, training curves, inference results, and
+            attention visualization.
           </div>
-          <a href="task4_Transformer/model_comparison.html" class="btn"
-            >查看详细比较</a
+          <a href="model_comparison.html" class="btn"
+            >View Detailed Comparison</a
           >
         </div>
       </div>
 
       <div class="performance-summary">
-        <h2>🎯 关键发现</h2>
+        <h2>Key Findings</h2>
         <ul style="font-size: 1.1em; line-height: 1.8">
           <li>
-            <strong>CNN是MNIST任务的最佳选择</strong> -
-            98.83%准确率，模型最小(177KB)
+            <strong>CNN is the best choice for MNIST task</strong> - 98.83%
+            accuracy with smallest model size (177KB)
           </li>
           <li>
-            <strong>MLP提供最快训练速度</strong> - 仅需35.37秒，准确率达98.10%
+            <strong>MLP offers fastest training speed</strong> - Only 35.37
+            seconds with 98.10% accuracy
           </li>
           <li>
-            <strong>Transformer展示架构复杂性</strong> -
-            训练时间最长，但展示了现代深度学习的强大能力
+            <strong>Transformer shows architectural complexity</strong> -
+            Longest training time but demonstrates modern deep learning
+            capabilities
           </li>
-          <li><strong>任务适配性重要</strong> - 简单任务不一定需要复杂模型</li>
+          <li>
+            <strong>Task appropriateness matters</strong> - Simple tasks don't
+            necessarily require complex models
+          </li>
         </ul>
       </div>
 
       <div class="footer">
-        <p>🚀 支持Apple Silicon GPU加速 (MPS) | 📱 响应式设计</p>
+        <p>Apple Silicon GPU Acceleration (MPS) Support | Responsive Design</p>
         <a
           href="https://github.com/Lloyd-lei/neuralNetwork.git"
           class="github-link"
         >
-          📂 GitHub Repository
+          GitHub Repository
         </a>
-        <a href="task4_Transformer/model_comparison.html" class="github-link">
-          📊 详细比较报告
+        <a href="model_comparison.html" class="github-link">
+          Detailed Comparison Report
         </a>
         <p style="margin-top: 20px; font-size: 0.9em">
           Physical Science 129 Course Project | Neural Network Architecture
