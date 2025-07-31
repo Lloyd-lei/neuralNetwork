@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neural Network Models Comparison</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      .container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .subtitle {
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 1.2em;
+        margin-bottom: 40px;
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
+      .project-card {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      .project-card.mlp {
+        border-left-color: #ff9671;
+      }
+      .project-card.cnn {
+        border-left-color: #00d2fc;
+      }
+      .project-card.transformer {
+        border-left-color: #9b59b6;
+      }
+      .project-card.comparison {
+        border-left-color: #27ae60;
+      }
+      .project-title {
+        color: #2c3e50;
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      .project-description {
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        text-align: center;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .performance-summary {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 30px 0;
+        border-left: 4px solid #3498db;
+      }
+      .performance-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .performance-table th,
+      .performance-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+      }
+      .performance-table th {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        font-weight: bold;
+      }
+      .performance-table tr:hover {
+        background-color: #f8f9fa;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 2px solid #eee;
+        color: #7f8c8d;
+      }
+      .github-link {
+        display: inline-block;
+        margin: 20px 10px;
+        padding: 10px 20px;
+        background: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      .github-link:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🧠 Neural Network Models Comparison</h1>
+      <p class="subtitle">
+        MNIST手写数字识别：MLP、CNN与Transformer模型的全面比较
+      </p>
+
+      <div class="performance-summary">
+        <h2>📊 性能对比总览</h2>
+        <table class="performance-table">
+          <thead>
+            <tr>
+              <th>模型</th>
+              <th>测试准确率</th>
+              <th>训练时间</th>
+              <th>模型大小</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MLP</strong></td>
+              <td>98.10%</td>
+              <td>35.37s</td>
+              <td>2.0MB</td>
+            </tr>
+            <tr>
+              <td><strong>CNN</strong></td>
+              <td>
+                <span style="color: #27ae60; font-weight: bold">98.83%</span>
+              </td>
+              <td>83.70s</td>
+              <td>
+                <span style="color: #27ae60; font-weight: bold">177KB</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Transformer</strong></td>
+              <td>96.80%</td>
+              <td>164.68s</td>
+              <td>4.35MB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="project-grid">
+        <div class="project-card mlp">
+          <div class="project-title">🔷 Multi-Layer Perceptron (MLP)</div>
+          <div class="project-description">
+            全连接神经网络实现，从NumPy基础版到PyTorch优化版。
+            展示了最基础的神经网络架构，训练速度快，结构简单。
+          </div>
+          <a href="task1_MLP/" class="btn">查看MLP实现</a>
+        </div>
+
+        <div class="project-card cnn">
+          <div class="project-title">🔹 Convolutional Neural Network (CNN)</div>
+          <div class="project-description">
+            卷积神经网络实现，专为图像分类设计。
+            在MNIST数据集上达到最佳性能平衡，模型小且准确率高。
+          </div>
+          <a href="task2_CNN/" class="btn">查看CNN实现</a>
+        </div>
+
+        <div class="project-card transformer">
+          <div class="project-title">🔮 Transformer Model</div>
+          <div class="project-description">
+            基于注意力机制的Transformer模型，展示现代深度学习架构。
+            包含位置编码、多头注意力等先进特性。
+          </div>
+          <a href="task4_Transformer/" class="btn">查看Transformer实现</a>
+        </div>
+
+        <div class="project-card comparison">
+          <div class="project-title">📈 全面模型比较</div>
+          <div class="project-description">
+            三种模型的详细性能比较，包括架构分析、训练曲线、
+            推理结果和注意力可视化等全方位对比。
+          </div>
+          <a href="task4_Transformer/model_comparison.html" class="btn"
+            >查看详细比较</a
+          >
+        </div>
+      </div>
+
+      <div class="performance-summary">
+        <h2>🎯 关键发现</h2>
+        <ul style="font-size: 1.1em; line-height: 1.8">
+          <li>
+            <strong>CNN是MNIST任务的最佳选择</strong> -
+            98.83%准确率，模型最小(177KB)
+          </li>
+          <li>
+            <strong>MLP提供最快训练速度</strong> - 仅需35.37秒，准确率达98.10%
+          </li>
+          <li>
+            <strong>Transformer展示架构复杂性</strong> -
+            训练时间最长，但展示了现代深度学习的强大能力
+          </li>
+          <li><strong>任务适配性重要</strong> - 简单任务不一定需要复杂模型</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p>🚀 支持Apple Silicon GPU加速 (MPS) | 📱 响应式设计</p>
+        <a
+          href="https://github.com/Lloyd-lei/neuralNetwork.git"
+          class="github-link"
+        >
+          📂 GitHub Repository
+        </a>
+        <a href="task4_Transformer/model_comparison.html" class="github-link">
+          📊 详细比较报告
+        </a>
+        <p style="margin-top: 20px; font-size: 0.9em">
+          Physical Science 129 Course Project | Neural Network Architecture
+          Evolution
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

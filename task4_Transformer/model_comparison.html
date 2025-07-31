@@ -189,29 +189,31 @@
           <td>测试准确率 (%)</td>
           <td>98.10</td>
           <td>98.83</td>
-          <td>98.90</td>
+          <td>96.80</td>
         </tr>
         <tr>
           <td>训练时间 (秒)</td>
           <td>35.37</td>
           <td>83.70</td>
-          <td>120.45</td>
+          <td>164.68</td>
         </tr>
         <tr>
           <td>模型大小 (MB)</td>
           <td>2.00</td>
           <td>0.18</td>
-          <td>0.50</td>
+          <td>4.35</td>
         </tr>
       </table>
 
       <div class="explanation">
         <p>从性能比较可以看出：</p>
         <ul>
-          <li>Transformer模型在准确率上略优于CNN和MLP</li>
+          <li>
+            CNN模型在准确率上表现最佳(98.83%)，Transformer在这个简单任务上准确率相对较低(96.80%)
+          </li>
           <li>MLP模型训练速度最快，Transformer训练时间最长</li>
-          <li>CNN模型大小最小，MLP模型大小最大</li>
-          <li>三种模型在MNIST数据集上都能达到很高的准确率（>98%）</li>
+          <li>CNN模型大小最小，Transformer模型大小最大</li>
+          <li>对于MNIST这样的简单任务，传统架构(CNN/MLP)比Transformer更有效</li>
         </ul>
       </div>
     </div>
