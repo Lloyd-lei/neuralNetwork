@@ -2,22 +2,17 @@
 
 Visit the web page to see more result: https://lloyd-lei.github.io/neuralNetwork/task4_Transformer/model_comparison.html
 
-## Project Structure
+## Tasks
 
 - **task1_MLP**: Implementation of the MLP model and visualization
 - **task2_CNN**: Implementation of the CNN model and visualization
 - **task3_MNIST**: Training and evaluation scripts for MLP and CNN, model comparison, and inference visualization
 - **task4_Transformer**: Implementation of the Transformer model with attention mechanism, training scripts, and comprehensive model comparisons
 
-## Key Features
+## GPU Config
 
 - Implementation of MLP, CNN, and Transformer architectures using PyTorch
-- Comprehensive training and evaluation pipeline
-- Detailed performance comparison between all three models
-- Visualization of model architectures, training curves, and inference results
-- Transformer-specific visualizations including attention mechanisms and positional encoding
-- Interactive HTML pages for result presentation
-- Support for Apple Silicon GPU acceleration (MPS)
+- Apple Silicon GPU acceleration (MPS)
 
 ## Performance Comparison
 
@@ -27,7 +22,7 @@ Visit the web page to see more result: https://lloyd-lei.github.io/neuralNetwork
 | Training Time | 35.37s | 83.70s | 164.68s     |
 | Model Size    | 2.0MB  | 177KB  | 4.35MB      |
 
-## Model Architecture Details
+## Model Introduction
 
 ### MLP (Multi-Layer Perceptron)
 
@@ -56,9 +51,7 @@ Visit the web page to see more result: https://lloyd-lei.github.io/neuralNetwork
 - **Advantages**: Parallel computation, can capture long-range dependencies
 - **Disadvantages**: Large parameter count, longer training time
 
-## Visualizations
-
-The project includes comprehensive visualizations:
+## Visualization Result
 
 - Model architectures comparison
 - Training and validation curves for all models
@@ -70,7 +63,7 @@ The project includes comprehensive visualizations:
   - Attention weight heatmaps
   - Architecture diagram with attention mechanism details
 
-## Key Findings
+## Findings
 
 1. **CNN remains the best choice** for MNIST classification with the highest accuracy (98.83%) and reasonable training time
 2. **MLP offers the fastest training** (35.37s) while maintaining good accuracy (98.10%)
@@ -170,10 +163,8 @@ section9B/
 
 ## Conclusion
 
-This project demonstrates the evolution of deep learning architectures from simple fully-connected networks (MLP) to specialized convolutional networks (CNN) and modern attention-based models (Transformer). Each architecture has its strengths:
+This project demonstrates the evolution of deep learning architectures from simple fully-connected networks (MLP) to specialized convolutional networks (CNN) and modern attention-based models (Transformer). Each architecture has its own advantages:
 
-- **Choose MLP** when you need fast training and simple implementation
+- **Choose MLP** easy training and simple implementation
 - **Choose CNN** for the best balance of accuracy, efficiency, and model size for image tasks
-- **Choose Transformer** for complex tasks requiring attention mechanisms and parallel processing capabilities
-
-The results show that model selection should be based on the specific requirements of your application, available computational resources, and the complexity of the task at hand.
+- **Choose Transformer** for parallel processing capabilities
